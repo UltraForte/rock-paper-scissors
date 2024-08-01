@@ -24,13 +24,22 @@ function getHumanChoice() {
     let humanChoice = prompt("Submit your choice: \"Rock\" \"Paper\" or \"Scissors\"").toLowerCase();
         if (humanChoice === "rock" || humanChoice === "paper" || humanChoice === "scissors") {
             //the one line below capitalizes the first letter of the displayed humanChoice//
-            humanChoice = humanChoice.charAt(0).toUpperCase() + humanChoice.slice(1);
-            console.log("You Choose:", humanChoice);
+            return humanChoice.charAt(0).toUpperCase() + humanChoice.slice(1);
         } else {
             alert("Choose one of the following options: \"Rock\" \"Paper\" or \"Scissors\"");
             getHumanChoice();
         };
 };
-getHumanChoice();
+let humanChoice = getHumanChoice();
+console.log("You Choose:", humanChoice);
 
 
+function playRound(humanChoice, computerChoice) {
+    if (humanChoice === computerChoice) {
+        console.log("It's a tie!");
+    } else if (humanChoice === "Rock" && computerChoice === "Paper" || computerChoice === "Scissors") {
+        console.log("You Win this round!")
+    }
+    
+};
+playRound(humanChoice, computerChoice);
