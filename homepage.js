@@ -1,6 +1,10 @@
 // JavaScript for the Rock, Paper, Scissors game.
 console.log("Hello World")
 
+//Play 5 rounds of the Game//
+function playGame() {
+    for (let i = 0; i <= 5; i++) {
+
 
 const choices = ["Rock", "Paper", "Scissors"];
 
@@ -34,8 +38,9 @@ let humanChoice = getHumanChoice();
 console.log("You Choose:", humanChoice);
 
 
-let humanScore = 0
-let computerScore = 0
+
+//Play 1 round of the game//
+
 function playRound(humanChoice, computerChoice) {
     if (humanChoice === computerChoice) {
         console.log("It's a tie!");
@@ -67,3 +72,18 @@ playRound(humanChoice, computerChoice);
 // rock      beats, scissors
 // scissors  beat paper
 // paper     beats rock
+};
+};
+
+//These score variables must be at global scope, 
+//otherwise they will get reset to 0 every round.
+let humanScore = 0
+let computerScore = 0
+//This call to function starts the game//
+playGame();
+
+if (humanScore > computerScore) {
+    console.log("You Win the Game!")
+} else {
+    console.log("You lost! Computer Wins the Game!")
+};
