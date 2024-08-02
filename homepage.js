@@ -3,7 +3,7 @@ console.log("Hello World")
 
 //Play 5 rounds of the Game//
 function playGame() {
-    for (let i = 0; i <= 5; i++) {
+    for (let i = 1; i <= 5; i++) {
 
 
 const choices = ["Rock", "Paper", "Scissors"];
@@ -83,7 +83,12 @@ let computerScore = 0
 playGame();
 
 if (humanScore > computerScore) {
-    console.log("You Win the Game!")
+    console.log("You Win the Game!");
+    console.log("Your score is:", humanScore, "Computer score is:", computerScore);
+} else if (computerScore > humanScore) {
+    console.log("You lost! Computer Wins the Game!");
+    console.log("Your score is:", humanScore, "Computer score is:", computerScore);
 } else {
-    console.log("You lost! Computer Wins the Game!")
+    console.log("The game is a tie!");
+    console.log("Your score is:", humanScore, "Computer score is:", computerScore);
 };
