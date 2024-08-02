@@ -8,15 +8,6 @@ function playGame() {
 
 const choices = ["Rock", "Paper", "Scissors"];
 
-function getComputerChoice(choices) {
-    let randomIndex = Math.floor(Math.random() * choices.length);
-
-    let choice = choices[randomIndex];
-
-    return choice;
-}
-let computerChoice = getComputerChoice(choices);
-console.log("Computer Chooses:", computerChoice);
 
 //Pseudo Code to getHumanChoice//
 //Assign a variable that will contain the users choice
@@ -36,6 +27,19 @@ function getHumanChoice() {
 };
 let humanChoice = getHumanChoice();
 console.log("You Choose:", humanChoice);
+
+
+
+//Get computers choice//
+function getComputerChoice(choices) {
+    let randomIndex = Math.floor(Math.random() * choices.length);
+
+    let choice = choices[randomIndex];
+
+    return choice;
+}
+let computerChoice = getComputerChoice(choices);
+console.log("Computer Chooses:", computerChoice);
 
 
 
