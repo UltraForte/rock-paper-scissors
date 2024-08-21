@@ -1,6 +1,12 @@
 // JavaScript for the Rock, Paper, Scissors game.
 console.log("Hello World")
-
+//Create the permanent elements in the DOM
+const scoreBoard = document.createElement("div");
+let humanScoreTxt = document.createElement("p");
+let computerScoreTxt = document.createElement("p");
+const choiceDisp = document.createElement("div");
+let humanChoiceTxt = document.createElement("p");
+let computerChoiceTxt = document.createElement("p");
 
 const buttonsDiv = document.getElementById("buttons");
 const rockBtn = document.createElement("button");
@@ -24,6 +30,9 @@ startBtn.addEventListener("click", () => {
     buttonsDiv.appendChild(rockBtn);
     buttonsDiv.appendChild(paperBtn);
     buttonsDiv.appendChild(scissorsBtn);
+
+    displayChoices();
+    displayScore();
 
 
     rockBtn.addEventListener("click", () => {
@@ -76,10 +85,12 @@ function getComputerChoice(choices) {
     return choice;
 }
 let computerChoice = getComputerChoice(choices);
+computerChoiceTxt.textContent = `Computer chooses: `+ computerChoice;
 console.log("Computer Chooses:", computerChoice);
 
 //Get human choice:
 let humanChoice = playerSelection;
+humanChoiceTxt.textContent = `You choose: `+ humanChoice;
 console.log("You Choose:", humanChoice);
 
 //Display outcome:
@@ -89,26 +100,51 @@ function displayOutcome(humanChoice, computerChoice) {
     } else if (humanChoice === "Rock" && computerChoice === "Scissors") {
         console.log("You Win. Rock beats Scissors!");
         humanScore = humanScore + 1;
+        humanScoreTxt.textContent = `Your score is: `+ humanScore;
     } else if (humanChoice === "Paper" && computerChoice === "Rock") {
         console.log("You Win. Paper beats Rock!");
         humanScore = humanScore + 1;
+        humanScoreTxt.textContent = `Your score is: `+ humanScore;
     } else if (humanChoice === "Scissors" && computerChoice === "Paper") {
         console.log("You Win. Scissors beat Paper!");
         humanScore = humanScore + 1;
+        humanScoreTxt.textContent = `Your score is: `+ humanScore;
 //above are human win conditions, below are computer win conditions//
 
     } else if (computerChoice === "Rock" && humanChoice === "Scissors") {
         console.log("Computer Wins. Rock beats Scissors");
         computerScore = computerScore + 1;
+        computerScoreTxt.textContent = `Computers score is: `+ computerScore;
     } else if (computerChoice === "Paper" && humanChoice === "Rock") {
         console.log("Computer Wins. Paper beats Rock");
         computerScore = computerScore + 1;
+        computerScoreTxt.textContent = `Computers score is: `+ computerScore;
     } else if (computerChoice === "Scissors" && humanChoice === "Paper") {
         console.log("Computer Wins. Scissors beat Paper");
         computerScore = computerScore + 1;
+        computerScoreTxt.textContent = `Computers score is: `+ computerScore;
     } else {
         console.log("There has been en error");
     };
 };
 displayOutcome(humanChoice, computerChoice);
+
 };
+
+//Display Score on the page
+function displayScore() {
+    humanScoreTxt.textContent = `Your score is: `+ humanScore;
+    computerScoreTxt.textContent = `Computers score is: `+ computerScore;
+    scoreBoard.appendChild(humanScoreTxt);
+    scoreBoard.appendChild(computerScoreTxt);
+    document.body.appendChild(scoreBoard);
+};
+
+//Display the selections on the page
+function displayChoices() {
+    humanChoiceTxt.textContent = `You choose: `;
+    computerChoiceTxt.textContent = `Computer chooses: `;
+    choiceDisp.appendChild(humanChoiceTxt);
+    choiceDisp.appendChild(computerChoiceTxt);
+    document.body.insertBefore(choiceDisp, gameText);
+}
