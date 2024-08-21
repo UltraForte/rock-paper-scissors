@@ -57,10 +57,19 @@ startBtn.addEventListener("click", () => {
 function checkScore() {
     if (humanScore === 5) {
         console.log("You Win the Game!");
-//      console.log("Your score is:", humanScore, "Computer score is:", computerScore);
+        let humanWinsTxt = document.createElement("p")
+        humanWinsTxt.textContent = `You Win the Game!`;
+        buttonsDiv.remove();
+        selectionText.remove();
+        gameText.appendChild(humanWinsTxt);
     } else if (computerScore === 5) {
         console.log("You lost! Computer Wins the Game!");
-//      console.log("Your score is:", humanScore, "Computer score is:", computerScore);
+        const computerWinsGame = document.createElement("div");
+        let computerWinsTxt = document.createElement("p")
+        computerWinsTxt.textContent = `You lost! Computer Wins the Game!`;
+        buttonsDiv.remove();
+        selectionText.remove();
+        gameText.appendChild(computerWinsTxt);
     };
 };
 
