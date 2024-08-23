@@ -176,9 +176,9 @@ function displayChoices() {
 
 
 //////////////////////////////////////////////////////////////
-//This is the same code as above, execept modified to create
+//This is the same code as above, except modified to create
 //the correct elements again,to try to make it work.
-//*Old code that was replaced is commented out*
+//This is a 2nd attempt to make it work, from scratch.
 function playAgain() {
     humanScore -= humanScore;
     computerScore -= computerScore;
